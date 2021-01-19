@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/startFragment2">
+
+    <fragment
+        android:id="@+id/startFragment2"
+        android:name="com.example.navigationcomponent.StartFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment2_to_gameFragment2"
+            app:destination="@id/gameFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment2"
+        android:name="com.example.navigationcomponent.GameFragment"
+        android:label="User vs Computer"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment2_to_endGameFragment2"
+            app:destination="@id/endGameFragment2"
+            app:popUpTo="@id/startFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/endGameFragment2"
+        android:name="com.example.navigationcomponent.EndGameFragment"
+        android:label="Final Scores"
+        tools:layout="@layout/fragment_end_game" >
+        <action
+            android:id="@+id/action_endGameFragment2_to_startFragment2"
+            app:destination="@id/startFragment2" />
+        <argument
+            android:name="computer_win_score"
+            app:argType="integer" />
+        <argument
+            android:name="user_win_score"
+            app:argType="integer" />
+    </fragment>
+</navigation>
